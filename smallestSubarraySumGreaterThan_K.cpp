@@ -2,7 +2,6 @@
 
 // sliding window
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,10 +10,7 @@ int subarray(vector<int> a, int n, int k){
     
     int cur_sum = 0, start = 0, i = 0;
     while(i < n){
-        while(cur_sum <= k and i < n){
-            cur_sum += a[i];
-            i++;
-        }
+        cur_sum += a[i++];
         
         while(cur_sum > k and start < i){
             minl = min(minl, i - start);
