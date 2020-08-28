@@ -3,26 +3,26 @@ https://practice.geeksforgeeks.org/problems/subarray-with-given-sum/0
 #include <bits/stdc++.h>
 using namespace std;
 
-int subArraySum(vector<int> arr, int n, int sum) 
-{ 
-    int cur_sum = arr[0], start = 0, i = 1;
-    while(i <= n) { 
-        while (cur_sum > sum && start < i - 1)
-            cur_sum -= arr[start++];
- 
-        if (cur_sum == sum) { 
+int subArraySum(vector<int> a, int n, int k){
+    
+    int cur_sum = 0, start = 0, i = 0;
+    while(i < n){
+        cur_sum += a[i++];
+        
+        while(cur_sum > k and start < i){
+            cur_sum -= a[start++];
+        }
+        
+        if (cur_sum == k) { 
             cout << start+1 << " " << i<<endl; 
             return 1; 
-        } 
-        if (i < n) 
-            cur_sum += arr[i]; 
-        i++;
-    } 
-  
+        }
+    }
     // If we reach here, then no subarray 
     cout << -1 << endl; 
     return 0; 
-} 
+}
+
 int main() {
     int t, n, k;
     cin>>t;
@@ -36,6 +36,5 @@ int main() {
         }
         subArraySum(a, n, k);
     }
-	
 	return 0;
 }
