@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
 // Stack based
 string removeDuplicates(string S) {
     string res = "";
