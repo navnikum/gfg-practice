@@ -12,7 +12,7 @@ void printLeaders(vector<int> arr, int n){
 
 // O(n)
 void printLeaders(vector<int> arr, int n){
-    int i, maxFromRight = arr[n-1];
+    int maxFromRight = arr[n-1];
     cout<<maxFromRight<<" ";
     for(int i= n-2; i>=0; i--){
         if(arr[i] >= maxFromRight){
