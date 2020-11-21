@@ -1,4 +1,16 @@
 // O(n)
+int strstr(string txt, string pat){ 
+	int n = txt.size(), m = pat.size();
+	int i, t=0;
+	for(i=0; i<n; i++){
+	    if(t == m)  break;
+	    if(txt[i] == pat[t])    t++;
+	    else    t=0;
+	}
+	return (t < m)? -1: (i-t);
+} 
+
+// KMP O(n)
 vector<int> prefix_function(string str) {
     int M = str.size();
     vector<int> lps(M);
