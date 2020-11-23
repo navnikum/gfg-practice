@@ -8,7 +8,7 @@ Node* pairWiseSwap(Node* head){
     // reverse link
     head->next->next = head;
     // fix head
-    head = head->next;
+    Node* newhead = head->next;
     
     while(curr && curr->next){
         prev->next = curr->next;
@@ -21,7 +21,7 @@ Node* pairWiseSwap(Node* head){
     }
     
     prev->next = curr;
-    return head;
+    return newhead;
 }
 // Recursive
 Node* pairWiseSwap(Node* head){
