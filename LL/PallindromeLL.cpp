@@ -12,16 +12,16 @@ bool isPalindrome(Node* head){
 }
 
 // Recursion
-bool isPalindromeUtil(Node** l, Node* r){
-    if(r == NULL)   return true;
-    bool isP = isPalindromeUtil(l, r->next);
-    if(isP == false)    return false;
-    bool isPalli = (*l)->data == r->data;
+bool util(Node** l, Node* r){
+    if(r==NULL) return true;
+    bool temp = util(l, r->next);
+    if(temp == false)   return temp;
+    bool res = r->data == (*l)->data;
     *l = (*l)->next;
-    return isPalli;
+    return res;
 }
-bool isPalindrome(Node* head){
-	return isPalindromeUtil(&head, head);
+bool isPalindrome(Node *head){
+    return util(&head, head);
 }
 
 // Pallindrome LL find mid and reverse
