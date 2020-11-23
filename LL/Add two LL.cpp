@@ -2,13 +2,11 @@
 Node* addTwoLists(Node* first, Node* second){
     Node *res, *prev;
     res = prev = NULL;
-    int sum = 0, carry = 0;
+    int sum, carry = 0;
     while(first || second){
         sum = carry + (first? first->data:0) + (second? second->data:0);
-        if(sum>=10){
-            sum = sum%10;
-            carry = 1;
-        }
+        carry = (sum>=10) ? 1 : 0;
+        sum = sum%10;
         Node *sumNode = new Node(sum);
         if(res == NULL) // empty
             res = sumNode;
@@ -34,14 +32,12 @@ Node* addTwoLists(Node* l1, Node* l2) {
     Node *res = NULL;
     int sum = 0, carry = 0;
     while(!s1.empty() || !s2.empty()){
-        int a, b; 
+        int a=0, b=0; 
         if(!s1.empty()) a=s1.top(), s1.pop();
         if(!s2.empty()) b=s2.top(), s2.pop();
         sum = carry + a + b;
-        if(sum>=10){
-            sum = sum%10;
-            carry = 1;
-        }
+        carry = (sum>=10) ? 1 : 0;
+        sum = sum%10;
         // push(&res, sum);
         Node *sumNode = new Node(sum);
         sumNode->next = res;
