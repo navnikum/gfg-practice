@@ -1,0 +1,12 @@
+// 1->1->2->3->3, return 1->2->3.
+
+ListNode* Solution::deleteDuplicates(ListNode* A) {
+    ListNode *curr = A;
+    while(curr && curr->next){
+        while(curr && curr->next && curr->val == curr->next->val){
+            curr->next = curr->next->next;
+        }
+        curr = curr->next;
+    }
+    return A;
+}
