@@ -28,3 +28,16 @@ int getNthFromLast(Node *head, int n){
         return ptr1->data;
     }
 }
+
+int getNthFromLast(Node *head, int n){    
+    Node *ptr1, *ptr2;
+    ptr1 = ptr2 = head;
+    for(int i=0; i<n; i++){
+        ptr2 = ptr2->next;
+    }
+        while(ptr2){
+            ptr2 = ptr2->next;
+            ptr1 = ptr1->next;
+        }
+        return ptr1->data;
+}
