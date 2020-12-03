@@ -8,10 +8,9 @@ int partition(vector<int>& v, int left, int right) {
         if (pivot >= v[r])  r--;*/
         
         // ascending order
-        if (v[l] > pivot && pivot > v[r]) swap(v[l++], v[r--]);
-        if (pivot >= v[l])  l++;
+        if (v[l] <= pivot)  l++;
         if (pivot <= v[r])  r--;
-        
+        if (v[l] > pivot && pivot > v[r]) swap(v[l++], v[r--]);        
     }
     swap(v[left], v[r]);
     return r;
